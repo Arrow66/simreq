@@ -1,10 +1,14 @@
 {
   "name": "simreq",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "simulates routes within  express js app ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+ "repository": {
+  "type": "git",
+  "url": "https://github.com/Arrow66/simreq"
   },
   "keywords": [
     "simulate",

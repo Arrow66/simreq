@@ -2,10 +2,10 @@ var httpMocks = require("node-mocks-http");
 
 class Simreq {
   constructor() {
-    if (!!Middler.instance) {
-      return Middler.instance;
+    if (!!Simreq.instance) {
+      return Simreq.instance;
     } else {
-      Middler.instance = this;
+      Simreq.instance = this;
       return this;
     }
   }
