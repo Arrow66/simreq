@@ -1,0 +1,22 @@
+{
+  "name": "simreq",
+  "version": "1.0.0",
+  "description": "simulates routes within  express js app ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "simulate",
+    "mock",
+    "http",
+    "simreq",
+    "request",
+    "response"
+  ],
+  "author": "Arjun Biju",
+  "license": "ISC",
+  "dependencies": {
+    "node-mocks-http": "^1.8.0"
+  }
+}
