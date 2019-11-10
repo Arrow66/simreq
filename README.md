@@ -19,7 +19,12 @@ npm install simreq
 ## Usage
 
 ```sh
+var app = express();
 var simreq = require(simreq) 
+simreq.init(app);
+
+
+
 ```
 
 ## Run tests
