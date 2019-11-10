@@ -8,7 +8,7 @@
   </a>
 </p>
 
-> simlute routes of an express app with in the app 
+> simulate routes of an express app with in the app .sometimes we need to execute more than one express endpoints to solve certain problems like sse or push notification  .this module lets you simulate any of the routes from anywhere in your express app 
 
 ## Install
 
@@ -20,29 +20,81 @@ npm install simreq
 
 ```sh
 var app = express();
-var simreq = require(simreq) 
+var simreq = require(simreq)
 simreq.init(app);
-
-
-
 ```
 
-## Run tests
+Import again on any of the router you have
 
 ```sh
-npm run test
+var simreq = require(simreq);
+
+
+Router.get("/foo",(req,res,next)=>{
+
+    res.send("foo");
+
+    simreq.simulator(
+      req,
+      next,
+      {
+        url: "/bar",
+        query: {
+          hi: "hello"
+        }
+      },
+      data => {
+
+        //SEND SSE OR DO ANYTHING 
+        console.log("Data From /bar", data);
+        //Data From /bar {test:true}
+      }
+    );
+
+})
+
+
+Router.get("/bar",(req,res,next)=>{
+
+  res.json({
+    test:true
+  })
+})
+
 ```
+
+
+
+
+## PARMS  
+
+- simreq.simulator(req,next,options,callback):
+  **req**: http request from the router
+  **next**: next() from the router
+  **options**:{}  
+  {
+    url:"route",
+    query:{},
+    params:{},
+    body:{}   
+
+
+  }
+  **callback**:function (data)
+    
+  
 
 ## Author
 
 👤 **Arjun Biju**
 
-* Website: https://github.com/Arrow66
-* Github: [@Arrow66](https://github.com/Arrow66)
+- Website: https://github.com/Arrow66
+- Github: [@Arrow66](https://github.com/Arrow66)
 
 ## Show your support
 
 Give a ⭐️ if this project helped you!
 
-***
+---
+
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
